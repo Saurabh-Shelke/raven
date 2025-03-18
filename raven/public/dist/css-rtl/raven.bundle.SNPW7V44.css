@@ -1,0 +1,348 @@
+/* ../../../../../../../../var/folders/wc/v69phsds3fl7t6fkns8glybm0000gn/T/tmp-49080-QunYAIM7ywti/raven/raven/public/scss/raven.bundle.css */
+@font-face {
+  font-family: "Cal Sans";
+  src: url(/assets/raven/fonts/CalSans.woff2) format("woff2");
+}
+:root {
+  --raven-header-height: 42px;
+  --raven-expanded-height: 84vh;
+  --raven-content-height: calc(var(--raven-expanded-height) - var(--raven-header-height));
+  --raven-content-width: 400px;
+}
+.cal-sans {
+  font-family:
+    "Cal Sans",
+    "Inter",
+    sans-serif;
+}
+.raven-chat {
+  position: fixed;
+  width: var(--raven-content-width);
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow-md);
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  overflow-x: hidden;
+  z-index: 1000;
+  bottom: 0;
+  border-top-left-radius: var(--border-radius-md);
+  border-top-right-radius: var(--border-radius-md);
+  right: 60px;
+}
+.skeleton {
+  background-color: var(--skeleton-bg);
+  animation: 2s breathe infinite;
+}
+@keyframes breathe {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+.break-all {
+  word-break: break-all;
+}
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.raven-container {
+  transition: height 0.3s ease-in-out;
+}
+.raven-container[data-open-state=false] {
+  height: var(--raven-header-height);
+  overflow: hidden;
+}
+.raven-container[data-open-state=true] {
+  height: var(--raven-expanded-height);
+  overflow: hidden;
+}
+.raven-container[data-open-state=true] .raven-header {
+  border-bottom: 1px solid var(--border-color);
+}
+.raven-content-container {
+  position: relative;
+}
+.raven-content-container[data-channel-list-view=false] .raven-channel-list {
+  width: 0;
+  position: absolute;
+  right: -100%;
+  opacity: 0;
+}
+.raven-content-container[data-channel-list-view=false] .raven-chat-view {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  opacity: 1;
+}
+.raven-content-container[data-channel-list-view=true] .raven-channel-list {
+  width: 100%;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+}
+.raven-content-container[data-channel-list-view=true] .raven-chat-view {
+  width: 0;
+  right: 100%;
+  position: absolute;
+  opacity: 0;
+}
+.raven-header {
+  height: var(--raven-header-height);
+  padding-inline: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.5rem;
+}
+.raven-header .open-raven-button {
+  padding: 4px;
+  box-shadow: none;
+  border: none;
+}
+.raven-header .open-raven-button svg {
+  fill: var(--text-muted);
+}
+.raven-header .open-raven-button:hover {
+  background-color: var(--control-bg);
+}
+.raven-header .back-button {
+  padding: 4px;
+}
+.raven-header .back-button svg {
+  fill: var(--heading-color);
+}
+.raven-header .back-button:hover {
+  background-color: var(--control-bg);
+}
+.raven-logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--heading-color);
+  padding-left: 4px;
+}
+.raven-unread-count {
+  background-color: var(--red-avatar-bg);
+  color: var(--red-avatar-color);
+  padding: 0.1rem 0.5rem;
+  margin-bottom: -0.3rem;
+  margin-left: 4px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.raven-channel-header-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.raven-channel-header {
+  display: flex;
+  align-items: center;
+  color: var(--heading-color);
+  gap: 0.4rem;
+}
+.raven-channel-header svg {
+  fill: var(--heading-color);
+}
+.raven-channel-header a {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+.raven-channel-header .raven-dm-channel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.raven-channel-list {
+  overflow-y: auto;
+  height: var(--raven-content-height);
+  transition: all 0.3s ease-in-out;
+}
+.raven-channel-list h4 {
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.5rem 0.4rem;
+  margin: 0;
+}
+.raven-channel-list-item {
+  padding: 0.3rem 0.5rem;
+  display: flex;
+  width: 100%;
+  background-color: transparent;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+}
+.raven-channel-list-item .channel-label {
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-family:
+    "Cal Sans",
+    "Inter",
+    sans-serif;
+}
+.raven-channel-list-item:hover {
+  background-color: var(--bg-light-gray);
+}
+.raven-channel-list-item .skeleton {
+  height: 1.6rem;
+  display: block;
+  width: 100%;
+  border-radius: var(--border-radius-md);
+}
+.raven-channel-list-item .raven-channel-icon {
+  height: 1.8rem;
+  display: flex;
+  fill: var(--heading-color);
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+}
+.raven-channel-list-item .channel-unread-count {
+  background-color: var(--red-avatar-bg);
+  color: var(--red-avatar-color);
+  padding: 0.1rem 0.5rem;
+  margin-bottom: -0.3rem;
+  margin-left: 4px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.raven-avatar {
+  width: 1.8rem;
+  height: 1.8rem;
+  min-width: 1.8rem;
+  min-height: 1.8rem;
+  display: block;
+  border-radius: 0.5rem;
+}
+.raven-avatar .placeholder {
+  display: flex;
+  align-items: center;
+  height: 1.8rem;
+  width: 1.8rem;
+  justify-content: center;
+}
+.raven-chat-view {
+  transition: all 0.3s ease-in-out;
+  overflow-x: hidden;
+  width: var(--raven-content-width);
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+}
+.raven-chat-view .raven-chat-view-container {
+  position: relative;
+  width: var(--raven-content-width);
+  height: var(--raven-content-height);
+  overflow-x: hidden;
+}
+.raven-chat-view .raven-chat-view-container .raven-chat-input {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  gap: 0.5rem;
+  min-height: 60px;
+  padding: 6px;
+  border-top: 1px solid var(--border-color);
+  width: var(--raven-content-width);
+}
+.raven-chat-view .raven-chat-view-container .raven-chat-input textarea {
+  width: 100%;
+  max-height: 60px;
+  min-height: 60px;
+  resize: none;
+}
+.raven-chat-view .raven-chat-view-container .raven-chat-input .send-button svg {
+  fill: var(--gray-8);
+}
+.raven-chat-view .raven-chat-view-container .raven-chat-input .send-button:hover {
+  background-color: var(--control-bg);
+}
+.raven-chat-view .raven-chat-view-container .raven-message-stream-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  height: calc(var(--raven-content-height) - 68px);
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.raven-date-separator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.raven-date-separator .raven-date-separator-line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-color);
+}
+.raven-date-separator .raven-date-separator-text {
+  font-size: 0.75rem;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  color: var(--text-color-secondary);
+}
+.message-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.message-item .raven-message-item-header .raven-message-item-header-name {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-color);
+}
+.message-item .raven-message-item-header .raven-message-item-header-time {
+  font-size: 0.7rem;
+  padding-right: 0.3rem;
+  margin-right: 0.3rem;
+  border-right: 1px solid var(--border-color);
+  color: var(--text-light);
+}
+.message-item .raven-message-image-link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--gray-400);
+  padding-bottom: 0.05rem;
+}
+.message-item .raven-message-image-link:hover {
+  border-bottom: 1px solid var(--gray-600);
+}
+.raven-tiptap-renderer {
+  color: var(--text-color);
+}
+.raven-tiptap-renderer a,
+.raven-tiptap-renderer .user-mention,
+.raven-tiptap-renderer .channel-mention {
+  color: var(--blue-500);
+}
+.raven-tiptap-renderer ol,
+.raven-tiptap-renderer ul {
+  padding-right: 1rem;
+}
+.raven-tiptap-renderer blockquote {
+  border-right: 2px solid var(--gray-400);
+  padding-right: 0.5rem;
+  margin-right: 0.5rem;
+}
+/*# sourceMappingURL=raven.bundle.SNPW7V44.css.map */
